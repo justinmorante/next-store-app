@@ -1,15 +1,26 @@
+import Collection from '@/components/shared/Collection';
 import { Button } from '@/components/ui/button';
+import { getAllEvents } from '@/lib/actions/event.actions';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Home() {
+export default async function Home() {
+  const events = await getAllEvents({
+    query: '',
+    category: '',
+    page: 1,
+    limit: 6,
+  });
+
+  // console.log(events);
+
   return (
     <>
       <section className="bg-primary-50 bg-dotted-pattern bg-contain py-5 md:py-10">
         <div className="wrapper grid grid-cols-1 gap-5 md:grid-cols-2 2xl:gap-0">
           <div className="flex flex-col justify-center gap-8">
             <h1 className="h1-bold">
-              Welcome to the Evently Product and Event Portal
+              Welcome to the TriloCart Product and Event Portal
             </h1>
             <p className="p-regular-20 md:p-regular-24">
               Create, Edit, and Monitor your Product Inventory.
@@ -20,7 +31,7 @@ export default function Home() {
           </div>
 
           <Image
-            src="/assets/images/hero.png"
+            src="/assets/images/herotc.png"
             alt="hero"
             width={1000}
             height={1000}
@@ -41,6 +52,15 @@ export default function Home() {
         <div className="flex w-full flex-col gap-5 md:flex-row">
           Search CategoryFilter
         </div>
+        <Collection
+          data={events?.data}
+          emptyTitle="No Events Found"
+          emptyStateSubtext="Please Try Again Later"
+          collectionType="All_Events"
+          limit={6}
+          page={1}
+          totalPages={2}
+        />
       </section>
     </>
   );

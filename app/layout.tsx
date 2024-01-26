@@ -10,7 +10,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'Evently',
+  title: 'TriloCart',
   description: 'Product and Event Portal',
   icons: {
     icon: '/assets/images/logo.svg',
