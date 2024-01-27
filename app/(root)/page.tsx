@@ -45,7 +45,7 @@ export default async function Home() {
         className="wrapper my-8 flex flex-col gap-8 md:gap-12"
       >
         <h2 className="h2-bold">
-          Quick Reference <br />
+          Fossil / Gem <br />
           Product and Event Catalog
         </h2>
 
