@@ -62,7 +62,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
         </div>
         <Collection
           data={events?.data}
-          emptyTitle="No Events Found"
+          emptyTitle="No Products Found"
           emptyStateSubtext="Please Try Again Later"
           collectionType="All_Events"
           limit={6}
